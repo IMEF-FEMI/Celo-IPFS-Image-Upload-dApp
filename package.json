@@ -27,7 +27,6 @@
     "web-vitals": "^1.0.1",
     "web3": "^1.5.0"
   },
-  "homepage": "https://imef-femi.github.io/Celo-IPFS-Image-Upload-dApp/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

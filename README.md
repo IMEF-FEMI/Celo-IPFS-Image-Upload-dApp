@@ -8,7 +8,7 @@ In this application, the main page displays a list of image cards filtered by ow
 
 
 #Demo 
-[https://imef-femi.github.io/Celo-IPFS-image-Gallery/](https://imef-femi.github.io/Celo-IPFS-image-Gallery/)
+[https://celo-ipfs-image-upload-dapp.herokuapp.com/](https://celo-ipfs-image-upload-dapp.herokuapp.com/)
 
 # Getting Started with Create React App
 
