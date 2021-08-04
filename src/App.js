@@ -21,7 +21,7 @@ function App() {
               <Route exact path="/" component={Images} />
               <Route exact path="/uploadimage" component={UploadImage} />
               <Route exact path="/images/:index" component={ImageDetail} />
-              <Route path="*" component={NotFound} />
+              <Route exact path="*" component={NotFound} />
             </Switch>
           </Main>
         </div>
