@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Celo-IPFS-Image-Upload-dApp/static/css/main.5f61bde1.chunk.css",
-    "main.js": "/Celo-IPFS-Image-Upload-dApp/static/js/main.f594a84c.chunk.js",
-    "main.js.map": "/Celo-IPFS-Image-Upload-dApp/static/js/main.f594a84c.chunk.js.map",
+    "main.js": "/Celo-IPFS-Image-Upload-dApp/static/js/main.a9823b09.chunk.js",
+    "main.js.map": "/Celo-IPFS-Image-Upload-dApp/static/js/main.a9823b09.chunk.js.map",
     "runtime-main.js": "/Celo-IPFS-Image-Upload-dApp/static/js/runtime-main.c3f84e98.js",
     "runtime-main.js.map": "/Celo-IPFS-Image-Upload-dApp/static/js/runtime-main.c3f84e98.js.map",
     "static/css/2.cccf0bc8.chunk.css": "/Celo-IPFS-Image-Upload-dApp/static/css/2.cccf0bc8.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.cccf0bc8.chunk.css",
     "static/js/2.2624aa80.chunk.js",
     "static/css/main.5f61bde1.chunk.css",
-    "static/js/main.f594a84c.chunk.js"
+    "static/js/main.a9823b09.chunk.js"
   ]
 }
