@@ -27,6 +27,16 @@ contract ImageRegister {
         string _tags,
         uint256 _uploadedOn
     );
+    // emit event when an image is updated
+    
+       event logImageEdited(
+        address indexed _owner, 
+        string _title, 
+        string _description, 
+        string _tags,
+        //timestamp the image was updated 
+        uint256 _updatedOn
+    );
 
    function uploadImage(
         string memory _ipfsHash, 
@@ -63,21 +73,20 @@ contract ImageRegister {
 
         _success = true;
     }
+    
 
     /** 
     * @notice Returns the number of images associated with the given address
     * @dev Controlled by circuit breaker
-    * @param _owner The owner address
     * @return The number of images associated with a given address
     */
-    function getImageCount(address _owner) public view returns (uint256) {
-        return ownerToImages[_owner].length;
+    function getImageCount() public view returns (uint256) {
+        return ownerToImages[msg.sender].length;
     }
 
     /** 
     * @notice Returns the image at index in the ownership array
     * @dev Controlled by circuit breaker
-    * @param _owner The owner address
     * @param _index The index of the image to return
     * @return _ipfsHash The IPFS hash
     * @return _title The image title
@@ -85,7 +94,7 @@ contract ImageRegister {
     * @return _tags image Then image tags
     * @return _uploadedOn The uploaded timestamp
     */ 
-    function getImage(address _owner, uint8 _index) 
+    function getImage(uint8 _index) 
         public  view returns (
         string memory _ipfsHash, 
         string memory _title, 
@@ -96,9 +105,9 @@ contract ImageRegister {
 
 
         require(_index >= 0 && _index <= 2**8 - 1);
-        require(ownerToImages[_owner].length > 0);
+        // require(ownerToImages[_owner].length > 0);
 
-        Image storage image = ownerToImages[_owner][_index];
+        Image storage image = ownerToImages[msg.sender][_index];
         
         return (
             image.ipfsHash, 
@@ -108,5 +117,30 @@ contract ImageRegister {
             image.uploadedOn
         );
     }
+    
+          //owner of the image can update the image details
+    function update(
+    uint8 _index    , 
+        string memory  _title, 
+        string memory _description, 
+        string memory _tags) 
+    public returns (bool _success) {
+        
+        require(bytes(_title).length > 0 && bytes(_title).length <= 256);
+        require(bytes(_description).length < 1024);
+        require(bytes(_tags).length > 0 && bytes(_tags).length <= 256);
+        ownerToImages[msg.sender][_index].title = _title;
+        ownerToImages[msg.sender][_index].description = _description;
+        ownerToImages[msg.sender][_index].tags = _tags;
+            
+        uint256 _updatedOn = block.timestamp;
+     
+            
+        emit logImageEdited(msg.sender, _title, _description, _tags, _updatedOn);
+        _success = true;
+    }
+    
+    
+    
 
 }
