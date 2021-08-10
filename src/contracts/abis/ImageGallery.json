@@ -43,12 +43,44 @@
         "type": "event"
     },
     {
+        "anonymous": false,
         "inputs": [
             {
+                "indexed": true,
                 "internalType": "address",
                 "name": "_owner",
                 "type": "address"
             },
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "_title",
+                "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "_description",
+                "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "_tags",
+                "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_updatedOn",
+                "type": "uint256"
+            }
+        ],
+        "name": "logImageEdited",
+        "type": "event"
+    },
+    {
+        "inputs": [
             {
                 "internalType": "uint8",
                 "name": "_index",
@@ -87,13 +119,7 @@
         "type": "function"
     },
     {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "_owner",
-                "type": "address"
-            }
-        ],
+        "inputs": [],
         "name": "getImageCount",
         "outputs": [
             {
@@ -147,6 +173,40 @@
             }
         ],
         "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint8",
+                "name": "_index",
+                "type": "uint8"
+            },
+            {
+                "internalType": "string",
+                "name": "_title",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_description",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_tags",
+                "type": "string"
+            }
+        ],
+        "name": "update",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "_success",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "nonpayable",
         "type": "function"
     },
     {

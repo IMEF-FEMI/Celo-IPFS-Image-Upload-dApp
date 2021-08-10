@@ -14,11 +14,16 @@ const Images = (props) => {
   }, []);
 
   let { images, loading } = props.image;
-  let imageItems;
+  let imageItems = null;
 
-  if (images === null || loading) {
+  if ( loading) {
     imageItems = <Spinner />;
-  } else {
+  }
+    else if(images === null ){
+       imageItems =  <h4>No images found</h4>;
+
+    }
+  else {
     if (images.length > 0) {
       imageItems = images.map((image) => (
         <ImageItem key={image.index} image={image} />
